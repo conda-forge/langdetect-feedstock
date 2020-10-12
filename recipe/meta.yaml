@@ -10,15 +10,14 @@ source:
   sha256: 363795ea005f1243c958e953245dac5d814fabdc025c9afa91588c5fa6b2fa83
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - python
-    - setuptools
-
+    - pip
   run:
     - python
     - six
@@ -26,8 +25,11 @@ requirements:
 test:
   imports:
     - langdetect
-    - langdetect.tests
     - langdetect.utils
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/Mimino666/langdetect
