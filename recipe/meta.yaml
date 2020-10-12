@@ -1,22 +1,18 @@
 {% set name = "langdetect" %}
-{% set version = "1.0.7" %}
-{% set bundle = "zip" %}
-{% set hash_type = "sha256" %}
-{% set hash = "91a170d5f0ade380db809b3ba67f08e95fe6c6c8641f96d67a51ff7e98a9bf30" %}
-{% set build = 0 %}
+{% set version = "1.0.8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 363795ea005f1243c958e953245dac5d814fabdc025c9afa91588c5fa6b2fa83
 
 build:
   noarch: python
-  number: {{ build }}
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 0
+  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt"
 
 requirements:
   build:
@@ -36,7 +32,7 @@ test:
 about:
   home: https://github.com/Mimino666/langdetect
   license_file: LICENSE
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
   summary: "Language detection library ported from Google's language-detection."
   doc_url: https://github.com/Mimino666/langdetect
