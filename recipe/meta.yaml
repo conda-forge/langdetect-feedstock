@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt"
+  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
@@ -34,7 +34,7 @@ about:
   license_file: LICENSE
   license: Apache-2.0
   license_family: Apache
-  summary: "Language detection library ported from Google's language-detection."
+  summary: Language detection library ported from Google's language-detection.
   doc_url: https://github.com/Mimino666/langdetect
   dev_url: https://github.com/Mimino666/langdetect
 
