@@ -1,5 +1,5 @@
 {% set name = "langdetect" %}
-{% set version = "1.0.8" %}
+{% set version = "1.0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 363795ea005f1243c958e953245dac5d814fabdc025c9afa91588c5fa6b2fa83
+  sha256: cbc1fef89f8d062739774bd51eda3da3274006b3661d199c2655f6b3f6d605a0
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
+  host:
     - python >=3.6
     - pip
   run:
