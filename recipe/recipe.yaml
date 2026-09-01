@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  name: langdetect
+  version: "1.0.9"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: cbc1fef89f8d062739774bd51eda3da3274006b3661d199c2655f6b3f6d605a0
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}
+    - setuptools
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - six
+
+tests:
+  - python:
+      imports:
+        - langdetect
+        - langdetect.utils
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license_file: LICENSE
+  license: Apache-2.0
+  summary: Language detection library ported from Google's language-detection.
+  homepage: https://github.com/Mimino666/langdetect
+  repository: https://github.com/Mimino666/langdetect
+  documentation: https://github.com/Mimino666/langdetect
+
+extra:
+  recipe-maintainers:
+    - pmlandwehr
+    - jan-janssen
