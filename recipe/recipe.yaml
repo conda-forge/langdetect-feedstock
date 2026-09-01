@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: langdetect
-  version: "1.0.9"
+  version: 1.0.9
 
 package:
   name: ${{ name|lower }}
@@ -19,7 +19,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - setuptools
     - pip
   run:
@@ -39,7 +39,7 @@ tests:
 about:
   license_file: LICENSE
   license: Apache-2.0
-  summary: Language detection library ported from Google's language-detection.
+  summary: Language detection library ported from Googles language-detection.
   homepage: https://github.com/Mimino666/langdetect
   repository: https://github.com/Mimino666/langdetect
   documentation: https://github.com/Mimino666/langdetect
